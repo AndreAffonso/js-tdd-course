@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <button id="btn">Click em please!!</button> -->
+
+  <script>
+    // const btn = document.getElementById('btn');
+    // let defer = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     if (true) {
+    //       resolve('Hello. It works');
+    //     } else {
+    //       reject('Erro');
+    //     }
+    //   }, 2000);
+    // })
+
+    // defer
+    //   .then((data) => {
+    //     console.log(data);
+    //     return 'foo'
+    //   })
+    //   .then(data => console.log(data))
+    //   .catch((err) => console.log(err))
+
+    // btn.addEventListener('click', () => {
+
+    // })
+
+    // var posts = fetch('http://api.football-data.org/v1/competitions/445/leagueTable', {
+    //   headers: {
+    //     "X-Auth-Token": "0e9d522c9750444d93fe38d3c4df0114"
+    //   }
+    // });
+    //pending
+    // resolved
+    // rejected
+
+    // posts
+    //   .then(data => data.json())
+    //   .then(data => data.standing.map((value, i) => console.log(`${i + 1}: ${value.teamName}`)))
+    //   .catch(err => console.log(err))
+
+    // class Animal {
+    //   constructor(kind, sound) {
+    //     this.kind = kind;
+    //     this.sound = sound
+    //   }
+
+    //   hello() {
+    //     console.log(`${this.sound}. Eu sou um ${this.kind}`)
+    //   }
+
+    //   static info() {
+    //     console.log('This is a class to create animals');
+    //   }
+
+    //   get name() {
+    //     return this.name;
+    //   }
+
+    //   set name(name) {
+    //     this.name = name;
+    //   }
+    // }
+
+    // let dog = new Animal('cachorro', 'auauauaauauau ');
+    // dog.hello();
+
+    /* GENERATOR */
+    // function* getName() {
+    //   yield 'André'
+    //   yield 'Luis'
+    //   yield 'Affonso'
+    //   yield 'de'
+    //   yield 'Melo'
+    // }
+
+    // const names = getName()
+
+    // console.log(names.next())
+
+    // function ajax(url) {
+    //   fetch(url)
+    //     .then(data => data.json())
+    //     .then(data => dados.next(data))
+    // }
+
+    // function* ajaxGen() {
+    //   console.log('buscando posts...');
+    //   const table1 = yield ajax('http://api.football-data.org/v1/competitions/445/leagueTable')
+    //   console.log('buscanco dados do github')
+    //   const table2 = yield ajax('http://api.football-data.org/v1/competitions/445/leagueTable')
+
+
+    // }
+
+    // const dados = ajaxGen();
+    // dados.next();
+
+    /*PROXY*/
+    // let obj = {
+    //   name: 'André',
+    //   age: 22
+    // }
+
+    // let proxy = new Proxy(obj, {
+    //   get(target, name) {
+    //     console.log('Algué está pedindo o nome')
+    //     return target[name];
+    //   },
+
+    //   set(target, name, value) {
+    //     console.log('Alguém está mudando o nome')
+    //     target[name] = value.toUpperCase();
+    //   }
+    // })
+
+    /*SET*/
+    // let mySet = new Set(['oi', 'tudo', 'bem']);
+
+    /*MAP*/
+    // let n = new Map();
+    // m.set('André', 22);
+    // m.set('Luis', 1);
+    // m.set('Carlos', 19);
+
+    /*ASYNC E AWAIT*/
+
+    async function getClassification() {
+      try {
+        const response = await fetch('http://api.football-data.org/v1/competitions/450/leagueTable', {
+          headers: {
+            "X-Auth-Token": "0e9d522c9750444d93fe38d3c4df0114"
+          }
+        })
+        const data = await response.json();
+
+        return data.standing.map((value, i) => {
+          console.log(`${i + 1}: ${value.teamName}`)
+        })
+      }
+      catch (err) {
+        await
+          console.error('Nooooo, fudeuuuuuu', err);
+      }
+
+    }
+
+    getClassification();
+
+    /*MÚLTIPLAS PROMISES*/
+
+    async function getUsers(users) {
+      const promises = users.map(user => fetch(`https://api.github.com/users/${user}`).then(r => r.json()))
+      const people = await Promise.all(promises);
+      console.log(people);
+    }
+
+    getUsers(['andreaffonso', 'suissa']);
+
+
+  </script>
+</body>
+
+</html>
