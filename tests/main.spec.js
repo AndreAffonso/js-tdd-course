@@ -1,58 +1,87 @@
 import { expect } from 'chai';
-import { sum, sub, mult, div } from '../src/main';
+import FizzBuzz from '../src/main';
 
-describe('Calc', () => {
-  // smoke tests
-
-  it('Should exists method sum', () => {
-    expect(sum).to.exist;
-    expect(sum).to.be.a('function');
-  });
-  it('Should exists method sub', () => {
-    expect(sub).to.exist;
-    expect(sub).to.be.a('function');
-  });
-  it('Should exists method mult', () => {
-    expect(mult).to.exist;
-    expect(mult).to.be.a('function');
-  });
-  it('Should exists method div', () => {
-    expect(div).to.exist;
-    expect(div).to.be.a('function');
+describe('Main', () => {
+  it('Should return `Fizz` when multiple of 3', () => {
+    expect(FizzBuzz(3)).to.be.equal('Fizz');
+    expect(FizzBuzz(6)).to.be.equal('Fizz');
   });
 
-  describe('Sum', () => {
-    it('should return 4 when sum(2,2)', () => {
-      expect(sum(2, 2)).to.be.equal(4);
-    });
+  it('Should return `Buzz` when multiple of 5', () => {
+    expect(FizzBuzz(5)).to.be.equal('Buzz');
+    expect(FizzBuzz(20)).to.be.equal('Buzz');
   });
 
-  describe('Sub', () => {
-    it('should return 4 when sub(6,2)', () => {
-      expect(sub(6, 2)).to.be.equal(4);
-    });
-
-    it('should return -4 when sub(6,10)', () => {
-      expect(sub(6, 10)).to.be.equal(-4);
-    });
+  it('Should return `FizzBuzz` when multiple of 3 and 5', () => {
+    expect(FizzBuzz(30)).to.be.equal('FizzBuzz');
+    expect(FizzBuzz(15)).to.be.equal('FizzBuzz');
   });
 
-  describe('Mult', () => {
-    it('should return 4 when sub(2,2)', () => {
-      expect(mult(2, 2)).to.be.equal(4);
-    });
+  it('Should return the number when no multiple', () => {
+    expect(FizzBuzz(7)).to.be.equal(7);
+    expect(FizzBuzz(13)).to.be.equal(13);
   });
 
-  describe('Div', () => {
-    it('should return 2 when sub(10,5) hahdahhahs', () => {
-      expect(div(10, 5)).to.be.equal(2);
-    });
-
-    it('should return `não é possível divisão por zero` when divide by zero', () => {
-      expect(div(4, 0)).to.be.equal('Não é possível divisão por zero');
-    });
+  it('Should return 0 when zero', () => {
+    expect(FizzBuzz(0)).to.be.equal(0);
   });
 });
+
+// import { expect } from 'chai';
+// import { sum, sub, mult, div } from '../src/main';
+
+// describe('Calc', () => {
+//   // smoke tests
+
+//   it('Should exists method sum', () => {
+//     expect(sum).to.exist;
+//     expect(sum).to.be.a('function');
+//   });
+//   it('Should exists method sub', () => {
+//     expect(sub).to.exist;
+//     expect(sub).to.be.a('function');
+//   });
+//   it('Should exists method mult', () => {
+//     expect(mult).to.exist;
+//     expect(mult).to.be.a('function');
+//   });
+//   it('Should exists method div', () => {
+//     expect(div).to.exist;
+//     expect(div).to.be.a('function');
+//   });
+
+//   describe('Sum', () => {
+//     it('should return 4 when sum(2,2)', () => {
+//       expect(sum(2, 2)).to.be.equal(4);
+//     });
+//   });
+
+//   describe('Sub', () => {
+//     it('should return 4 when sub(6,2)', () => {
+//       expect(sub(6, 2)).to.be.equal(4);
+//     });
+
+//     it('should return -4 when sub(6,10)', () => {
+//       expect(sub(6, 10)).to.be.equal(-4);
+//     });
+//   });
+
+//   describe('Mult', () => {
+//     it('should return 4 when sub(2,2)', () => {
+//       expect(mult(2, 2)).to.be.equal(4);
+//     });
+//   });
+
+//   describe('Div', () => {
+//     it('should return 2 when sub(10,5) hahdahhahs', () => {
+//       expect(div(10, 5)).to.be.equal(2);
+//     });
+
+//     it('should return `não é possível divisão por zero` when divide by zero', () => {
+//       expect(div(4, 0)).to.be.equal('Não é possível divisão por zero');
+//     });
+//   });
+// });
 
 // describe('Method A', () => {
 //   context.skip('Case 1', () => {
