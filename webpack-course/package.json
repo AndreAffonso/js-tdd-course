@@ -1,0 +1,27 @@
+{
+  "name": "webpack-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --mode production --colors --progress",
+    "dev": "./node_modules/.bin/webpack --mode development --colors --progress",
+    "watch": "npm run dev --watch",
+    "server": "./node_modules/.bin/webpack-dev-server --inline --open"
+  },
+  "author": "André Affonso",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "ramda": "^0.25.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
