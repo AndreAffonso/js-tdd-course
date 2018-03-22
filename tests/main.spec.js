@@ -1,3 +1,59 @@
+import { expect } from 'chai';
+import { sum, sub, mult, div } from '../src/main';
+
+describe('Calc', () => {
+  // smoke tests
+
+  it('Should exists method sum', () => {
+    expect(sum).to.exist;
+    expect(sum).to.be.a('function');
+  });
+  it('Should exists method sub', () => {
+    expect(sub).to.exist;
+    expect(sub).to.be.a('function');
+  });
+  it('Should exists method mult', () => {
+    expect(mult).to.exist;
+    expect(mult).to.be.a('function');
+  });
+  it('Should exists method div', () => {
+    expect(div).to.exist;
+    expect(div).to.be.a('function');
+  });
+
+  describe('Sum', () => {
+    it('should return 4 when sum(2,2)', () => {
+      expect(sum(2, 2)).to.be.equal(4);
+    });
+  });
+
+  describe('Sub', () => {
+    it('should return 4 when sub(6,2)', () => {
+      expect(sub(6, 2)).to.be.equal(4);
+    });
+
+    it('should return -4 when sub(6,10)', () => {
+      expect(sub(6, 10)).to.be.equal(-4);
+    });
+  });
+
+  describe('Mult', () => {
+    it('should return 4 when sub(2,2)', () => {
+      expect(mult(2, 2)).to.be.equal(4);
+    });
+  });
+
+  describe('Div', () => {
+    it('should return 2 when sub(10,5) hahdahhahs', () => {
+      expect(div(10, 5)).to.be.equal(2);
+    });
+
+    it('should return `não é possível divisão por zero` when divide by zero', () => {
+      expect(div(4, 0)).to.be.equal('Não é possível divisão por zero');
+    });
+  });
+});
+
 // describe('Method A', () => {
 //   context.skip('Case 1', () => {
 //     it('should happen blablabla', () => {
